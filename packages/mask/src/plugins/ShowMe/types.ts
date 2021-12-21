@@ -1,3 +1,5 @@
+// ShowMe Types
+
 export interface ClubExtra {
     website?: string
     twitter?: string
@@ -85,4 +87,18 @@ export interface Topic {
     pinned: boolean
     create_time: string
     latest_replies: TopicReplies[]
+}
+
+export interface Response<T> {
+    success: boolean
+    error_code?: number
+    error_message?: string
+    result?: T
+}
+
+export interface TopicDialogEvent {
+    open: boolean
+    club?: Club
+    topics?: Topic[]
+    postLink?: string | URL
 }

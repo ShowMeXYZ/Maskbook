@@ -1,26 +1,18 @@
 import { createPluginMessage, PluginMessageEmitter, createPluginRPC } from '@masknet/plugin-infra'
-import { SHOWME_PLUGIN_ID } from './constants'
-import type { Club, Topic } from './types'
-
-type TopicDialogUpdated =
-    | {
-          open: true
-          club: Club
-          topics: Topic[]
-          postLink: string | URL
-      }
-    | {
-          open: false
-      }
+import { PLUGIN_ID } from './constants'
+import type { TopicDialogEvent } from './types'
 
 interface ShowMeMessages {
     /**
      * Open topic dialog
      */
-    topicDialogUpdated: TopicDialogUpdated
+    topicDialogEvent: TopicDialogEvent
 
     rpc: unknown
 }
 
-export const PluginShowMeMessages: PluginMessageEmitter<ShowMeMessages> = createPluginMessage(SHOWME_PLUGIN_ID)
-export const PluginShowMeRPC = createPluginRPC(SHOWME_PLUGIN_ID, () => import('./services'), PluginShowMeMessages.rpc)
+if (import.meta.webpackHot) import.meta.webpackHot.accept()
+
+export const ShowMeMessages: PluginMessageEmitter<ShowMeMessages> = createPluginMessage(PLUGIN_ID)
+
+export const ShowMeRPC = createPluginRPC(PLUGIN_ID, () => import('./services'), ShowMeMessages.rpc)

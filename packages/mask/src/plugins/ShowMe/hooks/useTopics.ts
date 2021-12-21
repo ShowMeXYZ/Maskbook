@@ -1,6 +1,6 @@
 import { useAsyncRetry } from 'react-use'
-import { PluginShowMeRPC } from '../messages'
+import { ShowMeRPC } from '../messages'
 
-export function useTopics(clubUrl: string, userAddress?: string) {
-    return useAsyncRetry(() => PluginShowMeRPC.fetchPublicTopics(clubUrl, userAddress))
+export function usePublicInfo(clubUrl: string, userAddress?: string) {
+    return useAsyncRetry(() => ShowMeRPC.getPublicInfo(clubUrl, userAddress))
 }

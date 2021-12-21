@@ -4,7 +4,7 @@ import '../messages'
 
 const worker: Plugin.Worker.Definition = {
     ...base,
-    init(signal) {},
+    init() {},
 }
 
 export default worker
