@@ -28,7 +28,7 @@ const useStyles = makeStyles<{ isDashboard: boolean }>()((theme, { isDashboard }
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        ['& > p']: {
+        '& > p': {
             fontSize: 16,
             lineHeight: '22px',
             color: theme.palette.text.primary,
@@ -214,7 +214,7 @@ export function ConfirmDialogUI(props: ConfirmDialogUIProps) {
                                     <span>1 {inputToken.symbol}</span>
                                     {' = '}
                                     <span>
-                                        {`${formatBalance(
+                                        {formatBalance(
                                             outputAmount
                                                 .dividedBy(inputAmount)
                                                 .shiftedBy(inputToken.decimals - outputToken.decimals)
@@ -222,7 +222,8 @@ export function ConfirmDialogUI(props: ConfirmDialogUIProps) {
                                                 .integerValue(),
                                             outputToken.decimals,
                                             6,
-                                        )} ${outputToken.symbol}`}
+                                        )}{' '}
+                                        {outputToken.symbol}
                                     </span>
                                 </span>
                             )}

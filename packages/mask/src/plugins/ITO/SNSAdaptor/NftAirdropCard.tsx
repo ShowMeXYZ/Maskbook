@@ -91,7 +91,6 @@ const useStyles = makeStyles()((theme) => ({
         minHeight: 30,
         width: 80,
         background: 'rgba(255, 255, 255, 0.2)',
-        color: '#fff',
         '&:hover': {
             background: 'rgba(255, 255, 255, 0.4)',
         },
@@ -357,7 +356,7 @@ function ClaimItem(props: ClaimItemProps) {
                 </div>
                 <div>
                     <EthereumWalletConnectedBoundary
-                        hideRiskWarningConfirmed={true}
+                        hideRiskWarningConfirmed
                         classes={{
                             connectWallet: classNames(classes.actionButton, classes.connectWallet),
                             gasFeeButton: classNames(classes.actionButton, classes.connectWallet),
